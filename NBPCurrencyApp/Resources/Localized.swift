@@ -16,4 +16,7 @@ enum Localized {
     static let commonDatePickerCancelButtonTitle = "Zamknij"
     static let commonDatePickerConfirmButtonTitle = "Wybierz"
     static let searchButtonTitle = "Szukaj"
+    static let notFoundText = "Brak danych"
+    static let badRequestText = "Ups coś poszło nie tak..."
+    static let errorAlertButtonText = "Rozumiem"
 }

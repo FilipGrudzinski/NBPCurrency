@@ -55,7 +55,6 @@ final class JsonParserWorker: JsonParserWorkerProtocol {
         
         guard let item = parsedItem else {
             fatalError()
-            
         }
         
         return item

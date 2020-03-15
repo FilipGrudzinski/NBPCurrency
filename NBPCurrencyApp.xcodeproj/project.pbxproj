@@ -30,6 +30,10 @@
 		DC2A54CC24198086001C3BC8 /* CommonWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2A54CB24198086001C3BC8 /* CommonWorker.swift */; };
 		DC2A54DA241AEB27001C3BC8 /* MainViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2A54D9241AEB27001C3BC8 /* MainViewTableViewCell.swift */; };
 		DC2A54DD241AEB39001C3BC8 /* MainViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC2A54DC241AEB39001C3BC8 /* MainViewTableViewCell.xib */; };
+		DC35A6D5241E80D400F7E31C /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC35A6D4241E80D400F7E31C /* AlertViewController.swift */; };
+		DC35A6D8241E80E300F7E31C /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC35A6D7241E80E300F7E31C /* AlertViewController.xib */; };
+		DC35A6DA241E80ED00F7E31C /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC35A6D9241E80ED00F7E31C /* AlertViewModel.swift */; };
+		DC35A6DC241E95C000F7E31C /* MoyaExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC35A6DB241E95C000F7E31C /* MoyaExtensions.swift */; };
 		DC497AEC241E69C4003A34AB /* DetailViewDataSourceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC497AEB241E69C4003A34AB /* DetailViewDataSourceItem.swift */; };
 		DC497B16241E6DD0003A34AB /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC497B14241E6DD0003A34AB /* ApiError.swift */; };
 		DCC6907E241AEBCF00387F29 /* MainViewDataSourceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC6907D241AEBCF00387F29 /* MainViewDataSourceItem.swift */; };
@@ -83,6 +87,10 @@
 		DC2A54CB24198086001C3BC8 /* CommonWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWorker.swift; sourceTree = "<group>"; };
 		DC2A54D9241AEB27001C3BC8 /* MainViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTableViewCell.swift; sourceTree = "<group>"; };
 		DC2A54DC241AEB39001C3BC8 /* MainViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewTableViewCell.xib; sourceTree = "<group>"; };
+		DC35A6D4241E80D400F7E31C /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		DC35A6D7241E80E300F7E31C /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
+		DC35A6D9241E80ED00F7E31C /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
+		DC35A6DB241E95C000F7E31C /* MoyaExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaExtensions.swift; sourceTree = "<group>"; };
 		DC497AEB241E69C4003A34AB /* DetailViewDataSourceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewDataSourceItem.swift; sourceTree = "<group>"; };
 		DC497B14241E6DD0003A34AB /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		DCC6907D241AEBCF00387F29 /* MainViewDataSourceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDataSourceItem.swift; sourceTree = "<group>"; };
@@ -229,6 +237,7 @@
 				DC2A54AE241961D8001C3BC8 /* CollectionExtension.swift */,
 				DC2A54B1241961EE001C3BC8 /* StringExtensions.swift */,
 				DCC6909D241D5A9900387F29 /* UIFontExtension.swift */,
+				DC35A6DB241E95C000F7E31C /* MoyaExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -319,6 +328,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DC35A6D3241E80AB00F7E31C /* AlertViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DC35A6D4241E80D400F7E31C /* AlertViewController.swift */,
+				DC35A6D7241E80E300F7E31C /* AlertViewController.xib */,
+				DC35A6D9241E80ED00F7E31C /* AlertViewModel.swift */,
+			);
+			path = AlertViewController;
+			sourceTree = "<group>";
+		};
 		DC497ADE241E693E003A34AB /* New Group */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +365,7 @@
 		DCC69086241C2F6000387F29 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DC35A6D3241E80AB00F7E31C /* AlertViewController */,
 				DCD47DA1241D9954000FB20D /* CommonDatePicker */,
 				DCC6908D241C520700387F29 /* ActivityIndicator.swift */,
 			);
@@ -475,6 +495,7 @@
 				DC2A5460241952DC001C3BC8 /* Assets.xcassets in Resources */,
 				DC2A54DD241AEB39001C3BC8 /* MainViewTableViewCell.xib in Resources */,
 				DCC690A3241D62A200387F29 /* DetailViewTableViewCell.xib in Resources */,
+				DC35A6D8241E80E300F7E31C /* AlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +551,7 @@
 				DC2A549E24195FA2001C3BC8 /* MainViewController.swift in Sources */,
 				DCC690AA241D647D00387F29 /* TableCodeRequestModel.swift in Sources */,
 				DC2A54CC24198086001C3BC8 /* CommonWorker.swift in Sources */,
+				DC35A6DA241E80ED00F7E31C /* AlertViewModel.swift in Sources */,
 				DCC69094241C564600387F29 /* DetailViewModel.swift in Sources */,
 				DCC6908A241C330E00387F29 /* Localized.swift in Sources */,
 				DC2A54A82419607F001C3BC8 /* ReusableView.swift in Sources */,
@@ -543,6 +565,7 @@
 				DC2A54A62419606C001C3BC8 /* BundleExtension.swift in Sources */,
 				DCC69082241B094400387F29 /* JsonParserWorker.swift in Sources */,
 				DCC690B0241D7D7200387F29 /* TableTypesHelper.swift in Sources */,
+				DC35A6DC241E95C000F7E31C /* MoyaExtensions.swift in Sources */,
 				DC2A54AF241961D8001C3BC8 /* CollectionExtension.swift in Sources */,
 				DC2A5457241952DB001C3BC8 /* AppDelegate.swift in Sources */,
 				DCC69085241B098E00387F29 /* TableResponseModel.swift in Sources */,
@@ -564,6 +587,7 @@
 				DC2A54A42419605B001C3BC8 /* UIViewExtensionsNib.swift in Sources */,
 				DCC6909E241D5A9900387F29 /* UIFontExtension.swift in Sources */,
 				DC2A54C72419800A001C3BC8 /* TableRequestModel.swift in Sources */,
+				DC35A6D5241E80D400F7E31C /* AlertViewController.swift in Sources */,
 				DC2A54A024195FB0001C3BC8 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

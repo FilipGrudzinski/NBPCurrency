@@ -15,6 +15,7 @@ enum TextFieldType: Int, CaseIterable {
 
 protocol DetailViewModelProtocol: class {
     var delegate: DetailViewModelDelegate! { get set }
+    var searchButtonText: String { get }
     var title: String { get }
     var dataSourceCount: Int { get }
     
@@ -25,11 +26,13 @@ protocol DetailViewModelProtocol: class {
     func updateDatePickerHandler(date: Date)
     func selectTextFieldPick(index: Int)
     func searchDateData()
+    func clearData()
 }
 
 protocol DetailViewModelDelegate: class {
     func updateTextField(text: String, selected: Int)
     func reloadData()
+    func presentAlert(message: String)
 }
 
 final class DetailViewModel {
@@ -97,16 +100,15 @@ final class DetailViewModel {
         }
         
         switch networkError {
-        case .badRequest:
-            print("BadRequest")
-        case .notFound:
-            print("notFound")
+        case .badRequest, .notFound:
+            delegate.presentAlert(message: networkError.message)
         }
     }
 }
 
 extension DetailViewModel: DetailViewModelProtocol {
     var title: String { itemModel.currency }
+    var searchButtonText: String { Localized.searchButtonTitle }
     var dataSourceCount: Int { itemDataSource.count }
     
     func onViewDidLoad() {
@@ -153,5 +155,12 @@ extension DetailViewModel: DetailViewModelProtocol {
         .catch { error in
             self.errorHandler(error: error)
         }
+    }
+    
+    func clearData() {
+        endDate = .empty
+        startDate = .empty
+        delegate.updateTextField(text: .empty, selected: TextFieldType.start.rawValue)
+        delegate.updateTextField(text: .empty, selected: TextFieldType.end.rawValue)
     }
 }

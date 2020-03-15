@@ -44,15 +44,19 @@ final class DetailViewController: CommonViewController {
         refreshControl.backgroundColor = .white
         view.backgroundColor = .white
         
-        searchButton.backgroundColor = .appCold
-        searchButton.tintColor = .white
-        searchButton.layer.cornerRadius = Constants.cornerRadius
-        searchButton.isEnabled = false
-        
+        setupSearchButton()
         setupRefreshControl()
         setupTableView()
         setupTextFields()
         activityIndicator.show()
+    }
+    
+    private func setupSearchButton() {
+        searchButton.backgroundColor = .appCold
+        searchButton.tintColor = .white
+        searchButton.layer.cornerRadius = Constants.cornerRadius
+        searchButton.isEnabled = false
+        searchButton.setTitle(viewModel.searchButtonText, for: .normal)
     }
     
     private func setupTextFields() {
@@ -65,7 +69,7 @@ final class DetailViewController: CommonViewController {
         startDateTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         endDateTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
-        
+    
     private func setupRefreshControl() {
         refreshControl.beginRefreshing()
         refreshControl.backgroundColor = .white
@@ -117,16 +121,23 @@ extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.dataSourceCount
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: DetailViewTableViewCell = tableView.dequeueReusableCell(indexPath: indexPath)
         cell.setupData(viewModel.item(at: indexPath))
-
+        
         return cell
     }
 }
 
 extension DetailViewController: DetailViewModelDelegate {
+    func presentAlert(message: String) {
+        InViewControllerHelper.commonAlert(message: message, confirmHandler: {
+            self.activityIndicator.hide()
+            self.viewModel.clearData()
+        }, controller: self).presentIn()
+    }
+    
     func reloadData() {
         refreshControl.endRefreshing()
         activityIndicator.hide()
