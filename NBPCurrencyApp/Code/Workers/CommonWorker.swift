@@ -63,17 +63,24 @@ final class CommonWorker: CommonWorkerProtocol {
             provider.request(.getDateRates(requestModel)) { result in
                 switch result {
                 case let .success(response):
-                    print(response)
                     do {
                         let json = try JSON(data: response.data)
                         resolver.fulfill(json)
                     } catch {
-                        resolver.reject(error)
+                        let apiError: APIError = self.errorHandler(response.statusCode)
+                        resolver.reject(apiError)
                     }
                 case let .failure(error):
                     resolver.reject(error)
                 }
             }
         }
+    }
+    
+    private func errorHandler(_ value: Int) -> APIError {
+        guard value == APIError.badRequest.rawValue else {
+            return APIError.notFound
+          }
+        return APIError.badRequest
     }
 }

@@ -74,7 +74,8 @@ final class DetailViewModel {
                 self.prepareTableViewItem(self.parser.parseRatesCodeJsonData(response))
         }
         .catch { error in
-            print(error.localizedDescription) }
+            self.errorHandler(error: error)
+        }
     }
     
     private func convertDateToString(_ date: Date) -> String {
@@ -87,6 +88,19 @@ final class DetailViewModel {
         case .end:
             endDate = stringDate
             return stringDate
+        }
+    }
+    
+    private func errorHandler(error: Error) {
+        guard let networkError = error as? APIError else {
+            fatalError()
+        }
+        
+        switch networkError {
+        case .badRequest:
+            print("BadRequest")
+        case .notFound:
+            print("notFound")
         }
     }
 }
@@ -136,8 +150,8 @@ extension DetailViewModel: DetailViewModelProtocol {
             .done { response in
                 self.prepareTableViewItem(self.parser.parseRatesCodeJsonData(response))
         }
-        .catch {error in
-            print(error)
+        .catch { error in
+            self.errorHandler(error: error)
         }
     }
 }

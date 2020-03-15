@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum APIError: Int, Decodable {
+enum APIError: Int, CaseIterable, Error {
     case notFound = 404
     case badRequest = 400
 }

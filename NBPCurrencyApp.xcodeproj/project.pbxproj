@@ -31,7 +31,6 @@
 		DC2A54DA241AEB27001C3BC8 /* MainViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2A54D9241AEB27001C3BC8 /* MainViewTableViewCell.swift */; };
 		DC2A54DD241AEB39001C3BC8 /* MainViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC2A54DC241AEB39001C3BC8 /* MainViewTableViewCell.xib */; };
 		DC497AEC241E69C4003A34AB /* DetailViewDataSourceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC497AEB241E69C4003A34AB /* DetailViewDataSourceItem.swift */; };
-		DC497B15241E6DD0003A34AB /* NetworkErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC497B13241E6DD0003A34AB /* NetworkErrorResponse.swift */; };
 		DC497B16241E6DD0003A34AB /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC497B14241E6DD0003A34AB /* ApiError.swift */; };
 		DCC6907E241AEBCF00387F29 /* MainViewDataSourceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC6907D241AEBCF00387F29 /* MainViewDataSourceItem.swift */; };
 		DCC69082241B094400387F29 /* JsonParserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC69081241B094400387F29 /* JsonParserWorker.swift */; };
@@ -85,7 +84,6 @@
 		DC2A54D9241AEB27001C3BC8 /* MainViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTableViewCell.swift; sourceTree = "<group>"; };
 		DC2A54DC241AEB39001C3BC8 /* MainViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewTableViewCell.xib; sourceTree = "<group>"; };
 		DC497AEB241E69C4003A34AB /* DetailViewDataSourceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewDataSourceItem.swift; sourceTree = "<group>"; };
-		DC497B13241E6DD0003A34AB /* NetworkErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkErrorResponse.swift; sourceTree = "<group>"; };
 		DC497B14241E6DD0003A34AB /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		DCC6907D241AEBCF00387F29 /* MainViewDataSourceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDataSourceItem.swift; sourceTree = "<group>"; };
 		DCC69081241B094400387F29 /* JsonParserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserWorker.swift; sourceTree = "<group>"; };
@@ -332,7 +330,6 @@
 			isa = PBXGroup;
 			children = (
 				DC497B14241E6DD0003A34AB /* ApiError.swift */,
-				DC497B13241E6DD0003A34AB /* NetworkErrorResponse.swift */,
 			);
 			path = ApiError;
 			sourceTree = "<group>";
@@ -559,7 +556,6 @@
 				DCD47DA9241DA009000FB20D /* InViewControllerHelper.swift in Sources */,
 				DC2A549324195EC6001C3BC8 /* ApplicationCoordinator.swift in Sources */,
 				DCC69092241C563B00387F29 /* DetailViewController.swift in Sources */,
-				DC497B15241E6DD0003A34AB /* NetworkErrorResponse.swift in Sources */,
 				DC2A54C124196954001C3BC8 /* BaseTargetType.swift in Sources */,
 				DCD47DA3241D9972000FB20D /* CommonDatePickerViewController.swift in Sources */,
 				DC2A54B2241961EE001C3BC8 /* StringExtensions.swift in Sources */,

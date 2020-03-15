@@ -62,7 +62,21 @@ final class MainViewModel {
                 self.prepareTableViewItem(self.parser.parseTablesJsonData(response))
         }
         .catch { error in
-            print(error.localizedDescription) }
+            self.errorHandler(error: error)
+        }
+    }
+    
+    private func errorHandler(error: Error) {
+        guard let networkError = error as? APIError else {
+            fatalError()
+        }
+        
+        switch networkError {
+        case .badRequest:
+            print("BadRequest")
+        case .notFound:
+            print("notFound")
+        }
     }
 }
 

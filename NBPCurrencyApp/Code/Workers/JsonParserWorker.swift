@@ -55,6 +55,7 @@ final class JsonParserWorker: JsonParserWorkerProtocol {
         
         guard let item = parsedItem else {
             fatalError()
+            
         }
         
         return item
@@ -80,7 +81,7 @@ final class JsonParserWorker: JsonParserWorkerProtocol {
         
         parsedItem = TablesCodeResponseModel(code: code, table: table, currency: currency, rates: rates)
         
-        guard let item = parsedItem else {
+        guard let item = parsedItem else {            
             fatalError()
         }
         
