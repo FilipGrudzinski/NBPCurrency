@@ -19,4 +19,6 @@ enum Localized {
     static let notFoundText = "Brak danych"
     static let badRequestText = "Ups coś poszło nie tak..."
     static let errorAlertButtonText = "Rozumiem"
+    static let startDateText = "Czas początkowy"
+    static let endDateText = "Czas końcowy"
 }

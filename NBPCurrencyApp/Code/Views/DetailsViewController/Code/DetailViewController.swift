@@ -17,6 +17,8 @@ final class DetailViewController: CommonViewController {
     @IBOutlet private weak var startDateTextField: UITextField!
     @IBOutlet private weak var endDateTextField: UITextField!
     @IBOutlet private weak var searchButton: UIButton!
+    @IBOutlet private weak var startDateLabel: UILabel!
+    @IBOutlet private weak var endDateLabel: UILabel!
     
     private var viewModel: DetailViewModelProtocol
     
@@ -43,6 +45,14 @@ final class DetailViewController: CommonViewController {
         title = viewModel.title
         refreshControl.backgroundColor = .white
         view.backgroundColor = .white
+        startDateLabel.textAlignment = .center
+        startDateLabel.font = .font(with: .regular, size: .small)
+        startDateLabel.textColor = .appCold
+        startDateLabel.text = viewModel.startDateText
+        endDateLabel.textAlignment = .center
+        endDateLabel.font = .font(with: .regular, size: .small)
+        endDateLabel.textColor = .appCold
+        endDateLabel.text = viewModel.endDateText
         
         setupSearchButton()
         setupRefreshControl()
@@ -77,10 +87,11 @@ final class DetailViewController: CommonViewController {
     }
     
     private func setupTableView() {
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = .white
         tableView.registerCellByNib(DetailViewTableViewCell.self)
         tableView.dataSource = self
+        tableView.allowsSelectionDuringEditing = false
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .white
         
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl

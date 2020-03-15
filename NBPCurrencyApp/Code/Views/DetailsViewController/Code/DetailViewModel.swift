@@ -17,6 +17,8 @@ protocol DetailViewModelProtocol: class {
     var delegate: DetailViewModelDelegate! { get set }
     var searchButtonText: String { get }
     var title: String { get }
+    var startDateText: String { get }
+    var endDateText: String { get }
     var dataSourceCount: Int { get }
     
     func onViewDidLoad()
@@ -81,6 +83,16 @@ final class DetailViewModel {
         }
     }
     
+    private func fetchDataWithDate() {
+        worker.getDateRates(itemModel.table, itemModel.code, startDate, endDate)
+            .done { response in
+                self.prepareTableViewItem(self.parser.parseRatesCodeJsonData(response))
+        }
+        .catch { error in
+            self.errorHandler(error: error)
+        }
+    }
+    
     private func convertDateToString(_ date: Date) -> String {
         dateFormatter.dateFormat = .apiDateFormat
         let stringDate = dateFormatter.string(from: date)
@@ -108,6 +120,8 @@ final class DetailViewModel {
 
 extension DetailViewModel: DetailViewModelProtocol {
     var title: String { itemModel.currency }
+    var startDateText: String { Localized.startDateText }
+    var endDateText: String { Localized.endDateText }
     var searchButtonText: String { Localized.searchButtonTitle }
     var dataSourceCount: Int { itemDataSource.count }
     
@@ -116,7 +130,11 @@ extension DetailViewModel: DetailViewModelProtocol {
     }
     
     func refreshData() {
-        fetchData()
+        guard startDate.isNotEmpty, endDateText.isNotEmpty else {
+            fetchData()
+            return
+        }
+        fetchDataWithDate()
     }
     
     func textDidChangeClosure(text: String, index: Int) {
@@ -144,17 +162,13 @@ extension DetailViewModel: DetailViewModelProtocol {
     }
     
     func updateDatePickerHandler(date: Date) {
+        #warning("Add later secondPicker max day or maybe unloc second textField when first with date")
         delegate.updateTextField(text: convertDateToString(date), selected: selectedTextField.rawValue)
     }
     
     func searchDateData() {
-        worker.getDateRates(itemModel.table, itemModel.code, startDate, endDate)
-            .done { response in
-                self.prepareTableViewItem(self.parser.parseRatesCodeJsonData(response))
-        }
-        .catch { error in
-            self.errorHandler(error: error)
-        }
+        #warning("Add later validation for moreOrUqual max api day")
+        fetchDataWithDate()
     }
     
     func clearData() {

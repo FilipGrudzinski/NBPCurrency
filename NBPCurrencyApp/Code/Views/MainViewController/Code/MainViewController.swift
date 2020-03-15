@@ -53,17 +53,16 @@ final class MainViewController: CommonViewController {
     private func setupSegmentControl() {
         if #available(iOS 13.0, *) {
             segmentControl.overrideUserInterfaceStyle = .light
-        } else {
-            // Fallback on earlier versions
         }
     }
     
     private func setupTableView() {
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = .white
         tableView.registerCellByNib(MainViewTableViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.allowsSelectionDuringEditing = false
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .white
       
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
@@ -85,6 +84,7 @@ final class MainViewController: CommonViewController {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didTapCell(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -96,7 +96,6 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MainViewTableViewCell = tableView.dequeueReusableCell(indexPath: indexPath)
         cell.setupData(viewModel.item(at: indexPath))
-
         return cell
     }
 }
