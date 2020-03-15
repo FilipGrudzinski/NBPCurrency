@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="NBPCurrencyApp" customModuleProvider="target">
+            <connections>
+                <outlet property="segmentControl" destination="toh-fB-8sS" id="5I5-JZ-VFy"/>
+                <outlet property="tableView" destination="WCM-3D-IlG" id="syB-U5-7yc"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Ljf-C2-iRm"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WCM-3D-IlG">
+                    <rect key="frame" x="0.0" y="99" width="414" height="797"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="toh-fB-8sS">
+                    <rect key="frame" x="141.5" y="56" width="131" height="32"/>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                    <connections>
+                        <action selector="segementControlAction:" destination="-1" eventType="valueChanged" id="4rE-dM-dke"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WCM-3D-IlG" secondAttribute="trailing" id="8Ze-GV-r7l"/>
+                <constraint firstItem="toh-fB-8sS" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="8b4-5P-vCj"/>
+                <constraint firstAttribute="bottom" secondItem="WCM-3D-IlG" secondAttribute="bottom" id="RoX-lj-aPV"/>
+                <constraint firstItem="toh-fB-8sS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="WDU-uT-9I4"/>
+                <constraint firstItem="WCM-3D-IlG" firstAttribute="top" secondItem="toh-fB-8sS" secondAttribute="bottom" constant="12" id="bFV-16-V6X"/>
+                <constraint firstItem="WCM-3D-IlG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ntD-ME-YRy"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="132" y="154"/>
+        </view>
+    </objects>
+</document>
